@@ -8,9 +8,19 @@
         <RootNamespace>BGFX</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Native\osx-arm64\" />
-      <Folder Include="Native\win-x64\" />
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+        <ContentWithTargetPath Include=".\Native\win-x64\BGFX.dd">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>BGFX.dll</TargetPath>
+        </ContentWithTargetPath>
     </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <ContentWithTargetPath Include=".\Native\osx-arm64\libBGFX.dylib">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>libBGFX.dylib</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
 
 </Project>
