@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace BGFX;
 
-internal class BgfxUtils
+public class BgfxUtils
 {
     public static readonly Bgfx.FrameBufferHandle FrameBufferNone = new() { idx = ushort.MaxValue };
 

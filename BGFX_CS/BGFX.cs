@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 
 namespace BGFX;
 
-internal static class Bgfx
+public static class Bgfx
 {
     const string DllName = "BGFX";
 
