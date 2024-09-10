@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <RootNamespace>BGFX</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Native\osx-arm64\" />
+      <Folder Include="Native\win-x64\" />
+    </ItemGroup>
+
+</Project>
