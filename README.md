@@ -1,3 +1,4 @@
 ## C# Bindings for BGFX Graphics Library
-(https://github.com/bkaradzic/bgfx)
+Adapted from Official Bindings at:
+https://github.com/bkaradzic/bgfx
 ---
