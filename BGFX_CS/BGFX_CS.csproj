@@ -1,25 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RootNamespace>BGFX</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
-        <ContentWithTargetPath Include=".\Native\win-x64\BGFX.dd">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>BGFX.dll</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
-        <ContentWithTargetPath Include=".\Native\osx-arm64\libBGFX.dylib">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>libBGFX.dylib</TargetPath>
-        </ContentWithTargetPath>
+   <ItemGroup>
+        <Content Include="$(MSBuildThisFileDirectory)\Native\osx-arm64\libBGFX.dylib">
+            <TargetPath>Runtime/osx-arm64/libBGFX.dylib</TargetPath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
+        <Content Include="$(MSBuildThisFileDirectory)\Native\win-x64\BGFX.dll">
+            <TargetPath>Runtime/win-x64/BGFX.dll</TargetPath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
     </ItemGroup>
 
 
