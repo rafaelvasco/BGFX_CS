@@ -5,10 +5,8 @@
  * License: https://github.com/bkaradzic/bgfx/blob/master/LICENSE
  */
 
-
-using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 
 namespace BGFX;
 
@@ -2643,6 +2641,8 @@ public static unsafe partial class Bgfx
 	[LibraryImport(BGFXLibrary), UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
 	private static partial Memory* bgfx_copy(void* _data, uint _size);
 	
+	public static Memory* Copy(void* data, uint size) => bgfx_copy(data, size);
+	
 	/// <summary>
 	/// Make reference to data to pass to bgfx. Unlike `bgfx::alloc`, this call
 	/// doesn't allocate memory for data. It just copies the _data pointer. You
@@ -2658,6 +2658,8 @@ public static unsafe partial class Bgfx
 	///
 	[LibraryImport(BGFXLibrary), UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
 	private static partial Memory* bgfx_make_ref(void* _data, uint _size);
+	
+	public static Memory* MakeRef(void* data, uint size) => bgfx_make_ref(data, size);
 	
 	/// <summary>
 	/// Make reference to data to pass to bgfx. Unlike `bgfx::alloc`, this call

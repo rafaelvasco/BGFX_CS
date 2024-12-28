@@ -10,22 +10,22 @@ public class BgfxUtils
 
     public static unsafe Bgfx.Memory* MakeRef<T>(T[] data) where T : struct
     {
-        return Bgfx.make_ref(new Memory<T>(data).Pin().Pointer, (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
+        return Bgfx.MakeRef(new Memory<T>(data).Pin().Pointer, (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
     }
 
     public static unsafe Bgfx.Memory* MakeRef<T>(Memory<T> data) where T : struct
     {
-        return Bgfx.make_ref(data.Pin().Pointer, (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
+        return Bgfx.MakeRef(data.Pin().Pointer, (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
     }
 
     public static unsafe Bgfx.Memory* MakeRef<T>(Span<T> data) where T : struct
     {
-        return Bgfx.make_ref(Unsafe.AsPointer(ref data[0]), (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
+        return Bgfx.MakeRef(Unsafe.AsPointer(ref data[0]), (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
     }
 
     public static unsafe Bgfx.Memory* MakeCopy<T>(Memory<T> data) where T : struct
     {
-        return Bgfx.copy(data.Pin().Pointer, (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
+        return Bgfx.Copy(data.Pin().Pointer, (uint)((uint)data.Length * Unsafe.SizeOf<T>()));
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
